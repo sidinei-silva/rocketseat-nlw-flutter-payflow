@@ -78,8 +78,7 @@ class _HomePageState extends State<HomePage> {
             ),
             InkWell(
               onTap: () {
-                controller.setPage(1);
-                setState(() {});
+                Navigator.pushNamed(context, "/barcode_scanner");
               },
               child: Container(
                 width: 56,
@@ -95,7 +94,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                controller.setPage(1);
+                setState(() {});
+              },
               icon: Icon(
                 Icons.description_outlined,
                 color: AppColors.body,
