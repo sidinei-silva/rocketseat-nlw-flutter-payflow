@@ -89,8 +89,9 @@ class _HomePageState extends State<HomePage> {
                   : AppColors.body,
             ),
             InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, "/insert_boleto");
+              onTap: () async {
+                await Navigator.pushNamed(context, "/barcode_scanner");
+                setState(() {});
               },
               child: Container(
                 width: 56,
