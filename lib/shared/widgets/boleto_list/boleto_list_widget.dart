@@ -19,14 +19,16 @@ class BoletoListWidget extends StatefulWidget {
 class _BoletoListWidgetState extends State<BoletoListWidget> {
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<List<BoletoModel>>(
-      valueListenable: widget.controller.boletosNotifier,
-      builder: (_, boletos, __) => Column(
-        children: boletos
-            .map(
-              (boleto) => BoletoTileWidget(data: boleto),
-            )
-            .toList(),
+    return SingleChildScrollView(
+      child: ValueListenableBuilder<List<BoletoModel>>(
+        valueListenable: widget.controller.boletosNotifier,
+        builder: (_, boletos, __) => Column(
+          children: boletos
+              .map(
+                (boleto) => BoletoTileWidget(data: boleto),
+              )
+              .toList(),
+        ),
       ),
     );
   }
