@@ -20,37 +20,39 @@ class _MeusBoletosPageState extends State<MeusBoletosPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(
-          children: [
-            Container(
-              color: AppColors.primary,
-              height: 40,
-              width: double.maxFinite,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 24,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                color: AppColors.primary,
+                height: 40,
+                width: double.maxFinite,
               ),
-              child: ValueListenableBuilder<List<BoletoModel>>(
-                valueListenable: controller.boletosNotifier,
-                builder: (_, boletos, __) => AnimatedCard(
-                  direction: AnimatedCardDirection.top,
-                  child: BoletoInfoWidget(size: boletos.length),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                ),
+                child: ValueListenableBuilder<List<BoletoModel>>(
+                  valueListenable: controller.boletosNotifier,
+                  builder: (_, boletos, __) => AnimatedCard(
+                    direction: AnimatedCardDirection.top,
+                    child: BoletoInfoWidget(size: boletos.length),
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-        HeadingTitleBoletosWidget(title: "Meus Boletos"),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: BoletoListWidget(
-            controller: controller,
+            ],
           ),
-        )
-      ],
+          HeadingTitleBoletosWidget(title: "Meus Boletos"),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: BoletoListWidget(
+              controller: controller,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

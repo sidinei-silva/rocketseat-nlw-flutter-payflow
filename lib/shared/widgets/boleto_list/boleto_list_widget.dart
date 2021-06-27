@@ -22,10 +22,10 @@ class _BoletoListWidgetState extends State<BoletoListWidget> {
   Widget build(BuildContext context) {
     return AnimatedCard(
       direction: AnimatedCardDirection.right,
-      child: SingleChildScrollView(
-        child: ValueListenableBuilder<List<BoletoModel>>(
-          valueListenable: widget.controller.boletosNotifier,
-          builder: (_, boletos, __) => Column(
+      child: ValueListenableBuilder<List<BoletoModel>>(
+        valueListenable: widget.controller.boletosNotifier,
+        builder: (_, boletos, __) => Container(
+          child: Column(
             children: boletos
                 .map(
                   (boleto) => BoletoTileWidget(data: boleto),
