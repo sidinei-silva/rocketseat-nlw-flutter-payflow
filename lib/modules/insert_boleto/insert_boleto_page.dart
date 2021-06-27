@@ -118,12 +118,12 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
       bottomNavigationBar: SetLabelButtonsWidgets(
         primaryLabel: "Cancelar",
         primaryOnPressed: () {
-          Navigator.pop(context);
+          Navigator.popUntil(context, ModalRoute.withName('/home'));
         },
         secondaryLabel: "Cadastrar",
         secondaryOnPressed: () async {
           await controller.cadastrarBoleto();
-          Navigator.pop(context);
+          Navigator.popUntil(context, ModalRoute.withName('/home'));
         },
         enableSecondaryColor: true,
       ),
