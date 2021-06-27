@@ -6,6 +6,7 @@ import 'package:payflow/shared/themes/app_text_styles.dart';
 import 'package:payflow/shared/widgets/boleto_info/boleto_info_widget.dart';
 import 'package:payflow/shared/widgets/boleto_list/boleto_list_controller.dart';
 import 'package:payflow/shared/widgets/boleto_list/boleto_list_widget.dart';
+import 'package:payflow/shared/widgets/heading_title_boletos/heading_title_boletos_widget.dart';
 
 class MeusBoletosPage extends StatefulWidget {
   const MeusBoletosPage({Key? key}) : super(key: key);
@@ -42,25 +43,7 @@ class _MeusBoletosPageState extends State<MeusBoletosPage> {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
-          child: Row(
-            children: [
-              Text(
-                "Meus boletos",
-                style: TextStyles.titleBoldHeading,
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
-          child: Divider(
-            thickness: 1,
-            height: 1,
-            color: AppColors.stroke,
-          ),
-        ),
+        HeadingTitleBoletosWidget(title: "Meus Boletos"),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: BoletoListWidget(
