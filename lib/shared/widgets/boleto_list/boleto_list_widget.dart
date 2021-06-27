@@ -1,3 +1,4 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 
 import 'package:payflow/shared/models/boleto_model.dart';
@@ -19,15 +20,18 @@ class BoletoListWidget extends StatefulWidget {
 class _BoletoListWidgetState extends State<BoletoListWidget> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: ValueListenableBuilder<List<BoletoModel>>(
-        valueListenable: widget.controller.boletosNotifier,
-        builder: (_, boletos, __) => Column(
-          children: boletos
-              .map(
-                (boleto) => BoletoTileWidget(data: boleto),
-              )
-              .toList(),
+    return AnimatedCard(
+      direction: AnimatedCardDirection.right,
+      child: SingleChildScrollView(
+        child: ValueListenableBuilder<List<BoletoModel>>(
+          valueListenable: widget.controller.boletosNotifier,
+          builder: (_, boletos, __) => Column(
+            children: boletos
+                .map(
+                  (boleto) => BoletoTileWidget(data: boleto),
+                )
+                .toList(),
+          ),
         ),
       ),
     );
